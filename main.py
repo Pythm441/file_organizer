@@ -1,20 +1,28 @@
 import os
+import shutil
 
 downloads = "/home/abdelrahman/Downloads"
-music = "~/Music"
-Videos = "~/Videos"
-Pictures = "~/Pictures"
-Documents = "~/Documents"
-file = "/home/abdelrahman/Downloads/CLASSIFIED.yaml"
+music = "/home/abdelrahman/Music"
+Videos = "/home/abdelrahman/Videos"
+Pictures = "/home/abdelrahman/Pictures"
+Documents = "/home/abdelrahman/Documents"
 files = os.listdir(downloads)
+
+file_types = {Pictures: [".png", ".jpg", ".jpeg"]
+              , Documents: [".txt", ".pdf", ".docs", ".yaml"],
+                music : [".wav", ".mp3"],
+                 Videos:[".mp4"]}
 
 print(files)
 
 for file in files:
-    parts = os.path.splitext(file)
-    print(parts)
+    name, extension = os.path.splitext(file)
+    file_path = os.path.join(downloads, file)
+    print(extension)
 
-    if parts[1] == ".yaml"  or ".txt":
-        print("this is a text file")
+    for category, extensions in file_types.items():
+        if extension.lower() in extensions:
+            shutil.move(file_path, category)
+           
 
 
