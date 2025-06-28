@@ -6,6 +6,7 @@ music = "/home/abdelrahman/Music"
 videos = "/home/abdelrahman/Videos"
 pictures = "/home/abdelrahman/Pictures"
 documents = "/home/abdelrahman/Documents"
+log_file =  "/home/abdelrahman/Documents/log.txt"
 
 file_types = {pictures: [".png", ".jpg", ".jpeg"]
               , documents: [".txt", ".pdf", ".docs", ".yaml"],
@@ -28,18 +29,29 @@ def access_files():
             if extension.lower() in extensions:
                 os.makedirs(category, exist_ok = True)
                 shutil.move(file_path, category)
+
+                with open(log_file, "a") as log:
+                    print(f"Logging move of {file}")
+
+                    log.write("File has been moved\n")
+                
+
+                
+
                 break
 
 
-def logging():
 
-    return
+  
+        
+
 
 
 
 
 
 def main():
+
     access_files()
 
 
