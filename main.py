@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 import shutil
 
 downloads = "/home/abdelrahman/Downloads"
@@ -9,7 +10,7 @@ documents = "/home/abdelrahman/Documents"
 log_file =  "/home/abdelrahman/Documents/log.txt"
 
 file_types = {pictures: [".png", ".jpg", ".jpeg"]
-              , documents: [".txt", ".pdf", ".docs", ".yaml"],
+              , documents: [".txt", ".pdf", ".docx", ".yaml"],
                 music : [".wav", ".mp3"],
                  videos:[".mp4"]}
 
@@ -32,8 +33,7 @@ def access_files():
 
                 with open(log_file, "a") as log:
                     print(f"Logging move of {file}")
-
-                    log.write(f"{file} has been moved to {category}\n")
+                    log.write(f"At [{datetime.now()}]  {file} has been moved to {category}\n")
                 
 
                 
