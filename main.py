@@ -33,7 +33,7 @@ def access_files():
                 with open(log_file, "a") as log:
                     print(f"Logging move of {file}")
 
-                    log.write("File has been moved\n")
+                    log.write(f"{file} has been moved to {category}\n")
                 
 
                 
