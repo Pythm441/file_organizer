@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import shutil
 import logging
@@ -13,7 +15,7 @@ class FileOrganizer:
             "Music": [".mp3", ".wav", ".flac", ".aac", ".ogg"],
             "Videos": [".mp4", ".mkv", ".avi", ".mov", ".wmv"],
             "Archives": [".zip", ".rar", ".tar", ".gz", ".7z"],
-            "Scripts": [".py", ".js", ".sh", ".bat"],
+            "Scripts": [".py", ".js", ".sh", ".bat", ".html", ".css", ".cpp", ".cs", ".c"],
             "Other": [] 
         }
         self._setup_logging()
